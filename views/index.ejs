@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sayem - Home</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        scroll-behavior: smooth;
+      }
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+      }
+      #home {
+        height: 90vh;
+        width: 100%;
+        text-align: center;
+        background-image: url(https://img.freepik.com/premium-vector/colorful-backgrounds-with-abstract-geometric-pattern-design_181182-39430.jpg?semt=ais_hybrid&w=740);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        color: #000;
+      }
+      #home > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70vh;
+        flex-direction: column;
+      }
+      #home h1 {
+        font-size: 50px;
+      }
+      #home h2 {
+        font-size: 40px;
+        margin-top: 40px;
+      }
+      #home h3 {
+        font-size: 30px;
+        margin-top: 20px;
+      }
+
+      #about {
+        background-color: #f9f9f9;
+        padding: 80px 20px;
+      }
+
+      .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      @media (min-width: 768px) {
+        .about-container {
+          flex-direction: row-reverse;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .about-container {
+          flex-direction: column-reverse;
+          text-align: center;
+        }
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-text h2 {
+        font-size: 2.5rem;
+        color: #1f2937;
+        margin-bottom: 20px;
+      }
+
+      .about-text p {
+        font-size: 1.1rem;
+        color: #374151;
+        margin-bottom: 20px;
+        line-height: 1.7;
+      }
+
+      .about-text .highlight {
+        color: #3b82f6;
+        font-weight: bold;
+      }
+
+      .about-text ul {
+        list-style-type: none;
+        padding-left: 20px;
+        color: #4b5563;
+        margin-bottom: 25px;
+      }
+
+      .about-text li {
+        margin-bottom: 10px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: #3b82f6;
+        color: white;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #2563eb;
+      }
+
+      .about-image {
+        flex: 1;
+        text-align: center;
+      }
+
+      .about-image img {
+        max-width: 500px;
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      #services {
+        background-color: #ffffff;
+        padding: 80px 20px;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        color: #1f2937;
+        margin-bottom: 10px;
+      }
+
+      .section-subtitle {
+        font-size: 1.1rem;
+        color: #4b5563;
+        margin-bottom: 50px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .services-grid {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .service-card {
+        background-color: #f3f4f6;
+        border-radius: 16px;
+        padding: 30px 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-card h3 {
+        font-size: 1.4rem;
+        color: #2563eb;
+        margin-bottom: 15px;
+      }
+
+      .service-card p {
+        font-size: 1rem;
+        color: #374151;
+        line-height: 1.6;
+      }
+
+      .minBlogDiv {
+        background-color: #f9fafb;
+        padding: 60px 20px;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        max-width: 800px;
+        margin: 60px auto;
+      }
+
+      .minBlogDiv h1 {
+        font-size: 2.2rem;
+        color: #111827;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .blog-btn {
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        padding: 14px 30px;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .blog-btn:hover {
+        background-color: #1e40af;
+        transform: translateY(-3px);
+      }
+
+      .blog-btn a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .contact-me-section {
+        background-color: #f9fafb;
+        padding: 60px 20px;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        max-width: 900px;
+        margin: 60px auto;
+      }
+
+      .contact-me-section h2 {
+        font-size: 2.5rem;
+        color: #111827;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .contact-me-section p {
+        color: #6b7280;
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .social-icons a {
+        font-size: 2rem;
+        color: #2563eb;
+        background-color: #e0e7ff;
+        padding: 14px;
+        width: 40px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        background-color: #2563eb;
+        color: #fff;
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('navbar') %>
+
+    <section id="home">
+      <div>
+        <h1>Hello!</h1>
+        <h2>I am Md Sayem</h2>
+        <h3>Graphics Designer</h3>
+      </div>
+    </section>
+    <section id="about">
+      <div class="about-container">
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>
+            Hello! I'm <span class="highlight">Sayem</span>, As a graphic
+            designer with a passion for innovation and a mastery of Adobe
+            Photoshop, Illustrator, and InDesign, I bring a unique blend of
+            creativity and precision to every project. My work is driven by the
+            desire to transform ideas into visually captivating designs that not
+            only look great but also tell compelling stories. From branding and
+            visual identity to intricate print and digital designs, I’m
+            dedicated to delivering work that is both aesthetically powerful and
+            strategically effective. Each project is an opportunity to push
+            creative boundaries, craft meaningful experiences, and deliver
+            exceptional results that resonate with audiences.
+          </p>
+          <ul>
+            <li>
+              <strong>Expertise:</strong> Photoshop, Illustrator, Figma, Adobe
+              XD
+            </li>
+            <li>
+              <strong>Focus:</strong> Branding, UI/UX, Typography, Web Design
+            </li>
+            <li>
+              <strong>Experience:</strong> 3+ Years in freelance & agency work
+            </li>
+            <li>
+              <strong>Passion:</strong> Creating user-first, visually stunning
+              designs
+            </li>
+          </ul>
+          <a href="#contact" class="cta-button">Let's Collaborate</a>
+        </div>
+        <div class="about-image">
+          <img src="/uploads/sayem.png" alt="Sayem's photo" />
+        </div>
+      </div>
+    </section>
+    <section id="services">
+      <div class="services-container">
+        <h2 class="section-title">My Services</h2>
+        <p class="section-subtitle">
+          Helping brands stand out through creative visuals and smart design
+          solutions.
+        </p>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Logo Design</h3>
+            <p>
+              I craft unique, memorable logos that capture your brand’s identity
+              and values.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>Brand Identity</h3>
+            <p>
+              Complete branding packages including color palette, typography,
+              and visual guidelines.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>UI/UX Design</h3>
+            <p>
+              Beautiful and user-friendly interfaces for web and mobile apps
+              that improve user experience.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>Social Media Graphics</h3>
+            <p>
+              Engaging visuals for Instagram, Facebook, LinkedIn and more to
+              boost your online presence.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>Print Design</h3>
+            <p>
+              Flyers, posters, brochures — high-quality print materials that
+              impress and inform.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>Illustration</h3>
+            <p>
+              Custom illustrations and icons that add personality and uniqueness
+              to your project.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="minBlogDiv">
+      <h1>See My All Blogs</h1>
+      <button class="blog-btn"><a href="/blogs">Explore Blogs</a></button>
+    </div>
+    <section class="contact-me-section">
+      <h2>Let's Connect</h2>
+      <p>Feel free to reach out through any of the platforms below</p>
+      <div class="social-icons">
+        <a
+          href="https://www.facebook.com/profile.php?id=100072223269103"
+          target="_blank"
+          ><i class="bx bxl-facebook"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/md-sayem-2466b8331/"
+          target="_blank"
+          ><i class="bx bxl-linkedin"></i
+        ></a>
+        <a href="https://www.behance.net/mrsayem4" target="_blank"
+          ><i class="bx bxl-behance"></i
+        ></a>
+        <a href="https://www.instagram.com/sheikh_sayem_01/#" target="_blank"
+          ><i class="bx bxl-instagram"></i
+        ></a>
+      </div>
+    </section>
+  </body>
+</html>
